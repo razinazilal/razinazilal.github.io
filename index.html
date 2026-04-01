@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Razi</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <script>
+      function showContent(menu) {
+        let content = document.getElementById("content");
+
+        if (menu == "tentang") {
+          content.innerHTML = `
+          <h1>Tentang Saya</h1><br>
+            <p>Saya adalah siswa SMK Negeri 1 Bawang kelas X PPLG yang memiliki minat pada dunia desain dan pengembangan website.</p>
+            <p>Saya mulai belajar desain sejak SMP di SMP Islamic Plus Tunas Bangsa, dimana saya belajar membuat poster, icon, dan presentasi.</p>
+            <p>Saya tertarik pada bidang frontend development dan UI design.</p>
+          `;
+        } else if (menu == "pendidikan") {
+          content.innerHTML = `
+          <h1>Riwayat Pendidikan</h1>
+
+          <div class="list">
+            <div class="dot"></div>
+              <div>
+                <h3>SMK NEGERI 1 BAWANG</h3>
+                <p>2025 - 2028</p>
+              </div>
+            </div>
+
+            <div class="list">
+              <div class="dot"></div>
+                <div>
+                  <h3>SMP ISLAMIC PLUS TUNAS BANGSA</h3>
+                  <p>2022 - 2025</p>
+                </div>
+              </div>
+
+            <div class="list">
+              <div class="dot"></div>
+                <div>
+                  <h3>MI AHSANUL ULUM BANJARNEGARA</h3>
+                  <p>2016 - 2022</p>
+                </div>
+          </div>
+          `;
+        } else if (menu == "organisasi") {
+          content.innerHTML = `
+          <h1>Pengalaman Organisasi</h1>
+
+          <div class="list">
+          <div class="dot"></div>
+          <div>
+          <h3>Pengurus Ekstrakurikuler Basket</h3>
+          <p>SMK Negeri 1 Bawang</p>
+          </div>
+          </div>
+
+          <div class="list">
+          <div class="dot"></div>
+          <div>
+          <h3>-</h3>
+          <p>SMP IPBSTB</p>
+          </div>
+          </div>
+
+          <div class="list">
+          <div class="dot"></div>
+          <div>
+          <h3>-</h3>
+          <p>MI AHSANUL ULUM</p>
+          </div>
+          </div>
+          `;
+        } else if (menu == "prestasi") {
+          content.innerHTML = `
+            <h1>Prestasi</h1>
+
+            <div class="prestasi">
+            <img src="prestasi1.jpeg">
+            <img src="prestasi2.jpg">
+            </div>
+            `;
+        } else if (menu == "kemampuan") {
+          content.innerHTML = `
+            <h1>Kemampuan Saya</h1>
+
+            <ul class="skill">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>UI Design</li>
+            <li>Canva</li>
+            <li>Figma</li>
+            
+            </ul>
+            `;
+        } else if (menu == "kontak") {
+          content.innerHTML = `
+      <h1>Kontak</h1><br>
+
+      <p>Email : razinazil321@gmail.com</p>
+      <p>Telp : +62 851-5534-6531</p>
+      <p>Alamat : Banjarnegara, Jawa Tengah</p>
+      <br>
+      
+      <p>
+        <i class="bi bi-instagram"></i>
+        <a href="https://www.instagram.com/rzinzlal/" >
+        Instagram : @rzinzlal
+        </a>
+      </p>
+        <br>
+      <p>
+        <i class="bi bi-tiktok"></i>
+        <a href="https://www.tiktok.com/@alllziieeeyywwwww" >
+        TikTok : @aaalllzzziiieeewww
+        </a>
+      </p>
+        <br>
+      <p>
+        <i class="bi bi-github"></i>
+        <a href="https://github.com/razinazilal" >
+        GitHub : @razinazilal
+        </a>
+      </p>
+      
+  `;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+
+    <!-- NAVBAR -->
+
+    <nav>
+      <div class="logo">
+        <div class="icon">X</div>
+        <span>CV | Razi Nazil Alghifari</span>
+      </div>
+
+      <ul class="bar">
+        <li onclick="showContent('tentang')">Tentang</li>
+        <li onclick="showContent('pendidikan')">Pendidikan</li>
+        <li onclick="showContent('organisasi')">Pengalaman Organisasi</li>
+        <li onclick="showContent('prestasi')">Prestasi</li>
+        <li onclick="showContent('kemampuan')">Kemampuan</li>
+        <li onclick="showContent('kontak')">Kontak</li>
+      </ul>
+    </nav>
+
+    <!-- MAIN -->
+
+    <div class="main">
+      <div class="left">
+        <img src="WhatsApp Image 2026-03-05 at 14.24.37.jpeg" class="profile" />
+
+        <div class="card">
+          <h2>Identitas / Data Diri</h2>
+          <br />
+
+          <p><b>Nama</b><br />&nbsp Razi Nazil Alghifari</p>
+
+          <p><b>Kelas</b><br />&nbsp X PPLG 1</p>
+
+          <p><b>Tanggal Lahir</b><br />&nbsp 6 September 2009</p>
+
+          <p>
+            <b>Alamat</b><br />
+            &nbsp BanjarMangu RT2/RW1<br />
+            &nbsp Banjarnegara, Jawa Tengah
+          </p>
+
+          <p>
+            <b>Email</b><br />
+            &nbsp razinazil321@gmail.com
+          </p>
+
+          <p>
+            <b>No Telp</b><br />
+            &nbsp +62 851-5534-6531
+          </p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="card big">
+          <h1>Hallo, Saya Razi</h1>
+          <p>X PPLG 1 | Konsentrasi : Rekayasa Perangkat Lunak</p>
+
+          <div class="tag">
+            <span>Kreatif</span>
+            <span>Komunikatif</span>
+            <span>Kolaboratif</span>
+          </div>
+        </div>
+
+        <div class="card big2" id="content">
+          <h1>Tentang Saya</h1>
+          <br />
+          &nbsp
+          <p>
+            &nbsp Saya adalah siswa SMK Negeri 1 Bawang kelas X PPLG yang
+            memiliki minat pada dunia desain dan pengembangan website.
+          </p>
+          &nbsp
+          <p>
+            &nbsp Saya mulai belajar desain sejak SMP di SMP Islamic Plus Tunas
+            Bangsa, dimana saya belajar membuat poster, icon, dan presentasi.
+          </p>
+          &nbsp
+          <p>
+            &nbsp Saya tertarik pada bidang frontend development dan UI design.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- content -->
+
+    <section class="portfolio">
+      <h1 class="h1-prt"><b>Portfolio</b></h1>
+
+      <div class="portfolio-container">
+        <div class="post">
+          <img src="mobil ireng.png" alt="" />
+          <div class="overlay">
+            <h2>
+              <a
+                href="https://www.figma.com/proto/BJ2mEOO45wZmqre2jUYiD5/tesla-model-s?node-id=11-3&t=rLXGhZoB4avqjYSj-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A3"
+                >Tesla Model S</a
+              >
+            </h2>
+            <p>Design website penjualan mobil tesla</p>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="nile.png" alt="" />
+          <div class="overlay">
+            <h2>
+              <a
+                href="https://www.figma.com/proto/CQzlND4Ffhw4VYyYXZQQ6N/design-sepatu?node-id=0-1"
+                >Nike Store</a
+              >
+            </h2>
+            <p>Design website penjualan sepatu nike</p>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="h.png" alt="" />
+          <div class="overlay">
+            <h2>
+              <a
+                href="https://www.figma.com/proto/cZqLvMR1eg6t1Rhe4BwY8j/Untitled?node-id=0-1"
+                >Headset sony</a
+              >
+            </h2>
+            <p>Design website penjualan headset</p>
+          </div>
+        </div>
+
+        <div class="post">
+          <img src="sp.png" alt="" />
+          <div class="overlay">
+            <h2>
+              <a
+                href="https://www.figma.com/proto/fNKNfDbgaGHw11kbGEpZ0I/Untitled?node-id=9-277&starting-point-node-id=9%3A277"
+                >Shopee</a
+              >
+            </h2>
+            <p>Website ShopeeShopee Log In</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- content -->
+
+    <!-- footer -->
+
+    <div class="footer">
+      <div class="ftr">
+        <h1>Ini Footer</h1>
+      </div>
+    </div>
+
+    <!-- footer -->
+  </body>
+</html>
