@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Bang</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      /* BACKGROUND ANIMASI */
+      body::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          #00c6ff,
+          #0072ff,
+          #00dbde,
+          #4facfe,
+          #ff00cc,
+          #7b2ff7,
+          #fff700,
+          #ff8c00
+        );
+        background-size: 400% 400%;
+        animation: gradientMove 12s ease infinite;
+        filter: blur(90px);
+        z-index: -1;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* LOGIN BOX */
+
+      .login-box {
+        width: 330px;
+        padding: 35px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        text-align: center;
+      }
+
+      .login-box h2 {
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .login-box input {
+        width: 100%;
+        padding: 12px;
+        margin: 12px 0;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      /* PASSWORD */
+
+      .password-wrapper {
+        position: relative;
+      }
+
+      .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      /* BUTTON */
+
+      .login-box button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #111;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .login-box button:hover {
+        background: #333;
+        transform: scale(1.03);
+      }
+
+      /* ALERT CUSTOM */
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        width: 280px;
+      }
+
+      .popup.active {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .icon {
+        font-size: 50px;
+        margin-bottom: 10px;
+      }
+
+      .success {
+        color: #27ae60;
+        animation: pop 0.6s ease;
+      }
+
+      .error {
+        color: #e74c3c;
+        animation: shake 0.4s;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0);
+        }
+        80% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-6px);
+        }
+        50% {
+          transform: translateX(6px);
+        }
+        75% {
+          transform: translateX(-6px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .popup button {
+        margin-top: 15px;
+        padding: 8px 15px;
+        border: none;
+        background: #111;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-box">
+      <h2>Login</h2>
+
+      <input type="text" id="username" placeholder="Username" />
+
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" />
+        <span class="eye-icon" id="togglePassword">🙈</span>
+      </div>
+
+      <button id="loginBtn">Login</button>
+    </div>
+
+    <!-- POPUP -->
+    <div class="popup" id="popup">
+      <div class="icon" id="popupIcon"></div>
+      <h3 id="popupText"></h3>
+      <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+      const correctUsername = "razi";
+      const correctPassword = "123321";
+
+      const popup = document.getElementById("popup");
+      const popupIcon = document.getElementById("popupIcon");
+      const popupText = document.getElementById("popupText");
+
+      function showPopup(type, text) {
+        popup.classList.add("active");
+
+        if (type === "success") {
+          popupIcon.innerHTML = "✔";
+          popupIcon.className = "icon success";
+        } else {
+          popupIcon.innerHTML = "✖";
+          popupIcon.className = "icon error";
+        }
+
+        popupText.textContent = text;
+      }
+
+      function closePopup() {
+        popup.classList.remove("active");
+      }
+
+      /* LOGIN */
+
+      document
+        .getElementById("loginBtn")
+        .addEventListener("click", function () {
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+
+          if (username === correctUsername && password === correctPassword) {
+            showPopup("success", "Login Berhasil, Mengarahkan ke website...");
+
+            /* redirect setelah 1.5 detik */
+            setTimeout(function () {
+              window.location.href = "https://razinazilal.github.io/";
+            }, 1500);
+          } else {
+            showPopup("error", "Username atau Password Salah");
+          }
+        });
+
+      /* SHOW PASSWORD */
+
+      document
+        .getElementById("togglePassword")
+        .addEventListener("click", function () {
+          let passwordField = document.getElementById("password");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            this.textContent = "🙉";
+          } else {
+            passwordField.type = "password";
+            this.textContent = "🙈";
+          }
+        });
+    </script>
+  </body>
+</html>
